@@ -1,13 +1,12 @@
 .*
-!.gitignore
 !.npmignore
-!.travis.yml
-!.jscsrc
 
 *.orig
 
 /backup
-/test/debug
+/benchmarks
+/example
+/test
 
 # Logs
 logs

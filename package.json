@@ -1,0 +1,40 @@
+{
+  "name": "loopback-extended-lib",
+  "version": "0.0.0",
+  "description": "LoopBack Extended Lib",
+  "author": {
+    "name": "Wiredcraft",
+    "email": "info@wiredcraft.com",
+    "url": "http://wiredcraft.com"
+  },
+  "contributors": [
+    "Makara Wang"
+  ],
+  "keywords": [
+    "LoopBack",
+    "Extended",
+    "Lib"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wiredcraft/loopback-extended-lib"
+  },
+  "bugs": {
+    "url": "https://github.com/Wiredcraft/loopback-extended-lib/issues"
+  },
+  "homepage": "https://github.com/Wiredcraft/loopback-extended-lib",
+  "dependencies": {
+    "debug": "^2.2.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
+    "jscs": "^2.10.1",
+    "mocha": "^2.4.5",
+    "should": "^8.2.2"
+  },
+  "scripts": {
+    "test": "make test"
+  }
+}
