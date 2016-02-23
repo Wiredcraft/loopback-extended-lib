@@ -49,6 +49,20 @@ describe('The lib', function () {
       }).catch(done);
     });
 
+    it('can be used to replace data sources and the data source config can be a function', function (done) {
+      lib.dataSources = lib.dataSources || {};
+      lib.dataSources.db = function () {
+        return {
+          name: 'db',
+          connector: 'memory'
+        };
+      };
+      lib.extended.boot(app).then(function () {
+        app.dataSources.should.have.property('db').instanceof(DataSource);
+        done();
+      }).catch(done);
+    });
+
     it('can be used to add connectors', function (done) {
       lib.connectors = lib.connectors || {};
       lib.connectors.Lorem = function () {};
