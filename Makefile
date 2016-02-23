@@ -1,6 +1,6 @@
 ENV = NODE_ENV=test DEBUG=loopback:extended:*,carcass:*
 MOCHA = ./node_modules/.bin/_mocha
-MOCHA_OPTS = -b --timeout 3000 --reporter spec
+MOCHA_OPTS = -b --timeout 5000 --reporter spec
 TESTS = test/*.test.js
 ISTANBUL = ./node_modules/.bin/istanbul
 COVERALLS = ./node_modules/.bin/coveralls
