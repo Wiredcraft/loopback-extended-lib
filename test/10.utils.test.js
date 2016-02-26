@@ -4,6 +4,28 @@ var lib = require('../lib');
 
 describe('The utils', function () {
 
+  describe('The not empty object shortcut', function () {
+
+    it('should be there', function () {
+      lib.utils.should.have.property('notEmptyObject').with.type('function');
+    });
+
+    it('can check a thing', function () {
+      lib.utils.notEmptyObject({
+        lorem: true
+      }).should.equal(true);
+    });
+
+    it('can check a thing', function () {
+      lib.utils.notEmptyObject({}).should.equal(false);
+    });
+
+    it('can check a thing', function () {
+      lib.utils.notEmptyObject('lorem').should.equal(false);
+    });
+
+  });
+
   describe('The REST data source config builder', function () {
 
     it('should be there', function () {
