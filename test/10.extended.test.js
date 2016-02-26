@@ -3,18 +3,15 @@ var should = require('should');
 var lib = require('../lib');
 var DataSource = require('loopback-datasource-juggler').DataSource;
 
-describe('The lib', function () {
+describe('The extended', function () {
 
   var app;
 
-  it('should be there', function () {
-    lib.should.have.type('object');
-    lib.should.have.property('extended').with.type('object');
-    lib.extended.should.have.property('loopback').with.type('function');
-    lib.extended.should.have.property('boot').with.type('function');
-  });
+  describe('Loopback', function () {
 
-  describe('The extended loopback', function () {
+    it('should be there', function () {
+      lib.extended.should.have.property('loopback').with.type('function');
+    });
 
     it('can create an app', function () {
       app = lib.extended.loopback();
@@ -28,7 +25,11 @@ describe('The lib', function () {
 
   });
 
-  describe('The extended boot', function () {
+  describe('Boot', function () {
+
+    it('should be there', function () {
+      lib.extended.should.have.property('boot').with.type('function');
+    });
 
     it('can boot an app', function (done) {
       lib.extended.boot(app).then(function () {
