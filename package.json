@@ -28,6 +28,7 @@
     "bluebird": "^3.3.3",
     "debug": "^2.2.0",
     "file-register": "^0.1.0",
+    "http-errors": "^1.4.0",
     "joi": "^8.0.3",
     "loopback": "^2.27.0",
     "loopback-boot": "^2.17.0",

@@ -27,6 +27,24 @@ describe('The utils', function () {
 
   });
 
+  describe('The reject shortcut', function () {
+
+    it('should be there', function () {
+      lib.utils.should.have.property('reject').with.type('function');
+    });
+
+    it('can reject with an error', function (done) {
+      lib.utils.reject(404).then(function () {
+        done(new Error('expected an error'));
+      }).catch(function (err) {
+        err.should.have.type('object');
+        err.should.have.property('status', 404);
+        done();
+      });
+    });
+
+  });
+
   describe('The REST data source config builder', function () {
 
     it('should be there', function () {
