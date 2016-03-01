@@ -10,4 +10,12 @@ describe('The lib', function () {
     lib.should.have.property('utils').with.type('object');
   });
 
+  it('can assert singleton', function () {
+    lib.should.have.property('assertSingleton').with.type('function');
+    lib.assertSingleton(lib);
+    (function () {
+      lib.assertSingleton();
+    }).should.throw();
+  });
+
 });
