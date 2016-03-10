@@ -39,8 +39,9 @@ describe('The extended', function () {
     });
 
     it('can be used to replace data sources', function (done) {
-      lib.dataSources = lib.dataSources || {};
-      lib.dataSources.db = {
+      lib.configs = lib.configs || {};
+      lib.configs.dataSources = lib.configs.dataSources || {};
+      lib.configs.dataSources.db = {
         name: 'db',
         connector: 'memory'
       };
@@ -51,8 +52,9 @@ describe('The extended', function () {
     });
 
     it('can be used to replace data sources and the data source config can be a function', function (done) {
-      lib.dataSources = lib.dataSources || {};
-      lib.dataSources.db = function () {
+      lib.configs = lib.configs || {};
+      lib.configs.dataSources = lib.configs.dataSources || {};
+      lib.configs.dataSources.db = function () {
         return {
           name: 'db',
           connector: 'memory'
