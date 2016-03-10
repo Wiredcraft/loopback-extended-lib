@@ -36,15 +36,10 @@
     "mixable-object": "^0.1.1"
   },
   "devDependencies": {
-    "compression": "^1.6.1",
-    "cors": "^2.7.1",
     "coveralls": "^2.11.8",
-    "helmet": "^1.2.0",
     "istanbul": "^0.4.2",
     "jscs": "^2.11.0",
-    "loopback-component-explorer": "^2.3.0",
     "mocha": "^2.4.5",
-    "serve-favicon": "^2.3.0",
     "should": "^8.2.2"
   },
   "scripts": {
