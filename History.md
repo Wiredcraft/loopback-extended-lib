@@ -1,4 +1,13 @@
 
+0.2.0 / 2016-03-15
+==================
+
+  * Allow lib to come with actual models and mixins. Use the example as the test fixture.
+  * Better example.
+  * Merge the lib configs with the config files instead of the options, to keep consistency with the original API.
+  * Simplified example.
+  * Moved config files from lib to lib.cofings, for less confusion.
+
 0.1.3 / 2016-03-01
 ==================
 
