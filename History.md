@@ -1,4 +1,9 @@
 
+0.3.0 / 2016-03-22
+==================
+
+  * No more magically adding models and mixins; requires a proper config for now; maybe later.
+
 0.2.1 / 2016-03-15
 ==================
 
