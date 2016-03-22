@@ -70,14 +70,13 @@ describe('The extended', function () {
       }).catch(done);
     });
 
-    it('can be used to add models', function (done) {
+    it('can be used to add models (TODO)', function (done) {
       lib.configs = lib.configs || {};
       lib.configs.models = lib.configs.models || {};
       lib.configs.models.Lorem = {
         dataSource: 'db',
         public: false
       };
-      lib.models = require(path.resolve(exampleRoot, 'lib/models'));
       lib.extended.boot(app, exampleRoot).then(function () {
         app.should.have.property('models').with.type('function');
         app.models.should.have.property('Lorem').with.type('function');
@@ -85,8 +84,7 @@ describe('The extended', function () {
       }).catch(done);
     });
 
-    it('can be used to add mixins', function (done) {
-      lib.mixins = require(path.resolve(exampleRoot, 'lib/mixins'));
+    it('can be used to add mixins (TODO)', function (done) {
       lib.extended.boot(app, exampleRoot).then(function () {
         app.should.have.property('registry').with.type('object');
         app.registry.should.have.property('modelBuilder').with.type('object');

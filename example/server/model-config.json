@@ -3,12 +3,12 @@
     "sources": [
       "loopback/common/models",
       "loopback/server/models",
-      "./models"
+      "./lib/models"
     ],
     "mixins": [
       "loopback/common/mixins",
       "loopback/server/mixins",
-      "./mixins"
+      "./lib/mixins"
     ]
   }
 }
