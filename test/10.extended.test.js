@@ -97,6 +97,19 @@ describe('The extended', function () {
       }).catch(done);
     });
 
+    it('cannot override user configs', function (done) {
+      lib.configs = lib.configs || {};
+      lib.configs.dataSources = lib.configs.dataSources || {};
+      lib.configs.dataSources.db = {
+        name: 'db',
+        connector: 'null'
+      };
+      lib.extended.boot(app, exampleRoot).then(function () {
+        app.dataSources.should.have.property('db').instanceof(DataSource);
+        done();
+      }).catch(done);
+    });
+
   });
 
 });
