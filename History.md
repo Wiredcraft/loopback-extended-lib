@@ -1,4 +1,9 @@
 
+0.3.1 / 2016-03-23
+==================
+
+  * User configs override lib configs, instead of the other way.
+
 0.3.0 / 2016-03-22
 ==================
 
