@@ -1,4 +1,11 @@
 
+0.3.2 / 2016-04-01
+==================
+
+  * Minor coding style improvement.
+  * Added the `rootDir` var to app for convenient.
+  * Added a new shortcut: `notObjectOrIsEmpty()`.
+
 0.3.1 / 2016-03-23
 ==================
 
