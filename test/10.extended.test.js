@@ -25,6 +25,10 @@ describe('The extended', function () {
       app.boot(done);
     });
 
+    it('should have the root', function () {
+      app.get('rootDir').should.equal(exampleRoot);
+    });
+
   });
 
   describe('Boot', function () {
