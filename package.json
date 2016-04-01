@@ -29,19 +29,19 @@
     "debug": "^2.2.0",
     "file-register": "^0.1.0",
     "http-errors": "^1.4.0",
-    "joi": "^8.0.4",
+    "joi": "^8.0.5",
     "loopback": "^2.27.0",
     "loopback-boot": "^2.17.0",
     "loopback-datasource-juggler": "^2.45.2",
     "mixable-object": "^0.1.1"
   },
   "devDependencies": {
-    "coveralls": "^2.11.8",
+    "coveralls": "^2.11.9",
     "istanbul": "^0.4.2",
     "jscs": "^2.11.0",
-    "loopback-connector-rest": "^1.10.2",
+    "loopback-connector-rest": "^2.0.0",
     "mocha": "^2.4.5",
-    "should": "^8.2.2"
+    "should": "^8.3.0"
   },
   "scripts": {
     "test": "make test"

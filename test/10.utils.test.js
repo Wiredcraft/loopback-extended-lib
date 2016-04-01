@@ -25,6 +25,36 @@ describe('The utils', function () {
       lib.utils.notEmptyObject('lorem').should.equal(false);
     });
 
+    it('can check a thing', function () {
+      lib.utils.notEmptyObject(null).should.equal(false);
+    });
+
+  });
+
+  describe('The not object or is empty shortcut', function () {
+
+    it('should be there', function () {
+      lib.utils.should.have.property('notObjectOrIsEmpty').with.type('function');
+    });
+
+    it('can check a thing', function () {
+      lib.utils.notObjectOrIsEmpty({
+        lorem: true
+      }).should.equal(false);
+    });
+
+    it('can check a thing', function () {
+      lib.utils.notObjectOrIsEmpty({}).should.equal(true);
+    });
+
+    it('can check a thing', function () {
+      lib.utils.notObjectOrIsEmpty('lorem').should.equal(true);
+    });
+
+    it('can check a thing', function () {
+      lib.utils.notObjectOrIsEmpty(null).should.equal(true);
+    });
+
   });
 
   describe('The reject shortcut', function () {
