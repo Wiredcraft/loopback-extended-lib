@@ -63,14 +63,120 @@ describe('The utils', function () {
       lib.utils.should.have.property('reject').with.type('function');
     });
 
-    it('can reject with an error', function (done) {
+    it('can reject with an error code', function (done) {
       lib.utils.reject(404).then(function () {
         done(new Error('expected an error'));
       }).catch(function (err) {
         err.should.have.type('object');
         err.should.have.property('status', 404);
         done();
-      });
+      }).catch(done);
+    });
+
+    it('can reject with an error', function (done) {
+      var error = new Error('Lorem');
+      error.status = 404;
+      lib.utils.reject(error).then(function () {
+        done(new Error('expected an error'));
+      }).catch(function (err) {
+        err.should.have.type('object');
+        err.should.have.property('status', 404);
+        err.should.have.property('message', 'Lorem');
+        done();
+      }).catch(done);
+    });
+
+    it('can reject with an error', function (done) {
+      var error = new Error('Lorem');
+      error.status = 404;
+      error.code = 123;
+      lib.utils.reject(error).then(function () {
+        done(new Error('expected an error'));
+      }).catch(function (err) {
+        err.should.have.type('object');
+        err.should.have.property('status', 404);
+        err.should.have.property('code', 123);
+        err.should.have.property('message', 'Lorem');
+        done();
+      }).catch(done);
+    });
+
+    it('can reject with an error', function (done) {
+      var error = new Error();
+      error.status = 404;
+      error.message = {
+        code: 123,
+        message: 'Lorem'
+      };
+      lib.utils.reject(error).then(function () {
+        done(new Error('expected an error'));
+      }).catch(function (err) {
+        err.should.have.type('object');
+        err.should.have.property('status', 404);
+        err.should.have.property('code', 123);
+        err.should.have.property('message', 'Lorem');
+        done();
+      }).catch(done);
+    });
+
+    it('can reject with an error', function (done) {
+      var error = new Error();
+      error.status = 404;
+      error.message = {
+        error: {
+          code: 123,
+          message: 'Lorem'
+        }
+      };
+      lib.utils.reject(error).then(function () {
+        done(new Error('expected an error'));
+      }).catch(function (err) {
+        err.should.have.type('object');
+        err.should.have.property('status', 404);
+        err.should.have.property('code', 123);
+        err.should.have.property('message', 'Lorem');
+        done();
+      }).catch(done);
+    });
+
+    it('can reject with an error', function (done) {
+      var error = new Error();
+      error.status = 404;
+      error.message = {
+        errors: [{
+          code: 123,
+          message: 'Lorem'
+        }]
+      };
+      lib.utils.reject(error).then(function () {
+        done(new Error('expected an error'));
+      }).catch(function (err) {
+        err.should.have.type('object');
+        err.should.have.property('status', 404);
+        err.should.have.property('code', 123);
+        err.should.have.property('message', 'Lorem');
+        done();
+      }).catch(done);
+    });
+
+    it('can reject with an error', function (done) {
+      var error = new Error();
+      error.status = 404;
+      error.message = {
+        data: {
+          code: 123,
+          message: 'Lorem'
+        }
+      };
+      lib.utils.reject(error).then(function () {
+        done(new Error('expected an error'));
+      }).catch(function (err) {
+        err.should.have.type('object');
+        err.should.have.property('status', 404);
+        err.should.have.property('code', 123);
+        err.should.have.property('message', 'Lorem');
+        done();
+      }).catch(done);
     });
 
   });
