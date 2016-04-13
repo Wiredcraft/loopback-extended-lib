@@ -1,4 +1,9 @@
 
+0.3.3 / 2016-04-13
+==================
+
+  * Allow `reject()` to be used with HTTP errors when the error message is an object.
+
 0.3.2 / 2016-04-01
 ==================
 
