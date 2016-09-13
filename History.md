@@ -1,4 +1,11 @@
 
+0.3.4 / 2016-09-13
+==================
+
+  * Updated the example with latest Loopback.
+  * The utils `notEmptyObject` and `notObjectOrIsEmpty` were refactored to a new module `not-empty-object`; use it.
+  * Updated modules. Switched to JSCS Grunt preset with minimal tweaks.
+
 0.3.3 / 2016-04-13
 ==================
 
