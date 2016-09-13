@@ -1,10 +1,12 @@
+'use strict';
+
 var lib = require('./lib');
 
 var app = module.exports = lib.app;
 
-app.start = function () {
+app.start = function() {
   // start the web server
-  return app.listen(function () {
+  return app.listen(function() {
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
     console.log('Web server listening at: %s', baseUrl);
@@ -17,7 +19,7 @@ app.start = function () {
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-app.boot(function (err) {
+app.boot(function(err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`
