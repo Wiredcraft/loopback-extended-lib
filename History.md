@@ -1,4 +1,9 @@
 
+0.3.5 / 2016-10-12
+==================
+
+  * The utils `valueObtainer ` was refactored to a new module `value-obtainer`; use it.
+
 0.3.4 / 2016-09-13
 ==================
 
