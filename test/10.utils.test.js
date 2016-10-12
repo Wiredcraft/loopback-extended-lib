@@ -1,5 +1,4 @@
 var should = require('should');
-var Joi = require('joi');
 
 var lib = require('../lib');
 
@@ -260,97 +259,6 @@ describe('The utils', function() {
           }
         }]
       });
-    });
-
-  });
-
-  describe('The value obtainer builder', function() {
-
-    var schema = Joi.object({
-      lorem: Joi.string().trim()
-    });
-
-    it('should be there', function() {
-      lib.utils.should.have.property('valueObtainer').with.type('function');
-    });
-
-    it('can build a function', function() {
-      lib.utils.valueObtainer('xxx', schema).should.have.type('function');
-    });
-
-    it('can build a function', function() {
-      lib.utils.valueObtainer('xxx', schema, 'lorem').should.have.type('function');
-    });
-
-    it('can build a function', function() {
-      lib.utils.valueObtainer(schema).should.have.type('function');
-    });
-
-    it('can build a function', function() {
-      lib.utils.valueObtainer(schema, 'lorem').should.have.type('function');
-    });
-
-    it('can throw', function() {
-      (function() {
-        lib.utils.valueObtainer();
-      }).should.throw();
-    });
-
-    it('can throw', function() {
-      (function() {
-        lib.utils.valueObtainer({}, 'lorem');
-      }).should.throw();
-    });
-
-    it('can throw', function() {
-      (function() {
-        lib.utils.valueObtainer(Joi.string(), 'lorem');
-      }).should.throw();
-    });
-
-    it('can throw', function() {
-      (function() {
-        lib.utils.valueObtainer('lorem', {}, 'lorem');
-      }).should.throw();
-    });
-
-    describe('An obtainer', function() {
-
-      var ensureLorem;
-
-      it('can be created', function() {
-        ensureLorem = lib.utils.valueObtainer('ensureLorem', schema, 'lorem');
-        ensureLorem.should.have.type('function');
-      });
-
-      it('can validate and get value', function() {
-        ensureLorem({
-          lorem: 'lorem ipsum'
-        }).should.equal('lorem ipsum');
-      });
-
-      it('can throw', function() {
-        (function() {
-          ensureLorem({
-            lorem: 123
-          });
-        }).should.throw();
-      });
-
-      it('can throw', function() {
-        (function() {
-          ensureLorem({
-            ipsum: 'lorem ipsum'
-          });
-        }).should.throw();
-      });
-
-      it('can throw', function() {
-        (function() {
-          ensureLorem('lorem');
-        }).should.throw();
-      });
-
     });
 
   });
