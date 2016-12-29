@@ -1,5 +1,7 @@
+'use strict';
+
+require('should');
 const path = require('path');
-const should = require('should');
 
 const lib = require('../lib');
 const DataSource = require('loopback-datasource-juggler').DataSource;
