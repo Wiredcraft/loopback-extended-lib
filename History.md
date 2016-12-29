@@ -1,4 +1,12 @@
 
+0.4.0 / 2016-12-29
+==================
+
+  * Deprecated utils.restDataSourceConfig (use lib-rest).
+  * Extended data source with the ability to disconnect with Bluebird disposer.
+  * var -> const/let.
+  * Removed utils.reject (use handle-http-error) and some shortcut utils.
+
 0.3.5 / 2016-10-12
 ==================
 
