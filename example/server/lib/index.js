@@ -1,6 +1,8 @@
+'use strict';
+
 // The lib.
-// var lib = require('loopback-extended-lib');
-var lib = require('../../../');
+// const lib = require('loopback-extended-lib');
+const lib = require('../../../');
 
 // Register files.
 lib.register(__dirname);
