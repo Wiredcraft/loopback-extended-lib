@@ -1,19 +1,19 @@
-var should = require('should');
+const should = require('should');
 
-var lib = require('../lib');
+const lib = require('../lib');
 
-describe('The lib', function() {
+describe('The lib', () => {
 
-  it('should be there', function() {
+  it('should be there', () => {
     lib.should.have.type('object');
     lib.should.have.property('extended').with.type('object');
     lib.should.have.property('utils').with.type('object');
   });
 
-  it('can assert singleton', function() {
+  it('can assert singleton', () => {
     lib.should.have.property('assertSingleton').with.type('function');
     lib.assertSingleton(lib);
-    (function() {
+    (() => {
       lib.assertSingleton();
     }).should.throw();
   });

@@ -1,16 +1,16 @@
-var should = require('should');
+const should = require('should');
 
-var lib = require('../lib');
+const lib = require('../lib');
 
-describe('The utils', function() {
+describe('The utils', () => {
 
-  describe('The REST data source config builder', function() {
+  describe('The REST data source config builder', () => {
 
-    it('should be there', function() {
+    it('should be there', () => {
       lib.utils.should.have.property('restDataSourceConfig').with.type('function');
     });
 
-    it('can create a config', function() {
+    it('can create a config', () => {
       lib.utils.restDataSourceConfig({}).should.deepEqual({
         connector: 'rest',
         debug: false,
@@ -26,7 +26,7 @@ describe('The utils', function() {
       });
     });
 
-    it('can create a config', function() {
+    it('can create a config', () => {
       lib.utils.restDataSourceConfig({
         debug: true,
         options: {
@@ -52,7 +52,7 @@ describe('The utils', function() {
       });
     });
 
-    it('can create a config', function() {
+    it('can create a config', () => {
       lib.utils.restDataSourceConfig({}, [{
         template: {
           method: 'GET',
@@ -89,7 +89,7 @@ describe('The utils', function() {
       });
     });
 
-    it('can create a config', function() {
+    it('can create a config', () => {
       lib.utils.restDataSourceConfig({
         debug: true,
         options: {

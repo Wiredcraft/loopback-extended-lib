@@ -8,6 +8,7 @@ module.exports = function config(app) {
   var API = app.get('loremApi');
 
   var dataSource = utils.restDataSourceConfig({
+    name: 'lorem',
     baseURL: API,
     options: {
       headers: {

@@ -2,5 +2,9 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "redis": {
+    "name": "redis",
+    "connector": "ioredis"
   }
 }

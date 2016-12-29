@@ -1,100 +1,110 @@
-var path = require('path');
-var should = require('should');
+const path = require('path');
+const should = require('should');
 
-var lib = require('../lib');
-var DataSource = require('loopback-datasource-juggler').DataSource;
+const lib = require('../lib');
+const DataSource = require('loopback-datasource-juggler').DataSource;
 
-describe('The extended', function() {
+describe('The extended', () => {
 
-  var app;
-  var exampleRoot = path.resolve(__dirname, '../example/server');
+  let app;
+  const exampleRoot = path.resolve(__dirname, '../example/server');
 
-  describe('Loopback', function() {
+  describe('Loopback', () => {
 
-    it('should be there', function() {
+    it('should be there', () => {
       lib.extended.should.have.property('loopback').with.type('function');
     });
 
-    it('can create an app', function() {
+    it('can create an app', () => {
       app = lib.extended.loopback(exampleRoot);
       app.should.have.type('function');
     });
 
-    it('can boot itself', function(done) {
+    it('can boot itself', (done) => {
       app.should.have.property('boot').with.type('function');
       app.boot(done);
     });
 
-    it('can boot itself', function(done) {
+    it('can boot itself', (done) => {
       app.should.have.property('boot').with.type('function');
       app.boot().then(done, done);
     });
 
-    it('should have the root', function() {
+    it('should have the root', () => {
       app.get('rootDir').should.equal(exampleRoot);
+    });
+
+    it('can disconnect all data sources', (done) => {
+      app.should.have.property('disconnectAll').with.type('function');
+      app.disconnectAll(done);
+    });
+
+    it('can reboot', (done) => {
+      app.should.have.property('reboot').with.type('function');
+      app.reboot(done);
     });
 
   });
 
-  describe('Boot', function() {
+  describe('Boot', () => {
 
-    it('should be there', function() {
+    it('should be there', () => {
       lib.extended.should.have.property('boot').with.type('function');
     });
 
-    it('can boot an app', function(done) {
-      lib.extended.boot(app, exampleRoot).then(function() {
+    it('can boot an app', (done) => {
+      lib.extended.boot(app, exampleRoot).then(() => {
         app.should.have.property('dataSources').with.type('object');
         app.dataSources.should.have.property('db').instanceof(DataSource);
         done();
       }).catch(done);
     });
 
-    it('can be used to add data sources', function(done) {
+    it('can be used to add data sources', (done) => {
       lib.configs = lib.configs || {};
       lib.configs.dataSources = lib.configs.dataSources || {};
       lib.configs.dataSources.ipsum = require(path.resolve(exampleRoot, 'lib/configs/dataSources/ipsum'));
-      lib.extended.boot(app, exampleRoot).then(function() {
+      lib.extended.boot(app, exampleRoot).then(() => {
         app.dataSources.should.have.property('ipsum').instanceof(DataSource);
         done();
       }).catch(done);
     });
 
-    it('can be used to add data sources and the data source config can be a function', function(done) {
+    it('can be used to add data sources and the data source config can be a function', (done) => {
       lib.configs = lib.configs || {};
       lib.configs.dataSources = lib.configs.dataSources || {};
       lib.configs.dataSources.lorem = require(path.resolve(exampleRoot, 'lib/configs/dataSources/lorem'));
-      lib.extended.boot(app, exampleRoot).then(function() {
+      lib.extended.boot(app, exampleRoot).then(() => {
         app.dataSources.should.have.property('lorem').instanceof(DataSource);
         done();
       }).catch(done);
     });
 
-    it('can be used to add connectors', function(done) {
+    it('can be used to add connectors', (done) => {
       lib.connectors = lib.connectors || {};
-      lib.connectors.Lorem = function() {};
-      lib.extended.boot(app, exampleRoot).then(function() {
+      lib.connectors.Lorem = () => {};
+      lib.extended.boot(app, exampleRoot).then(() => {
         app.connectors.should.have.property('Lorem').with.type('function');
         done();
       }).catch(done);
     });
 
-    it('can be used to add models (TODO)', function(done) {
+    it('can be used to add models (TODO)', (done) => {
       lib.configs = lib.configs || {};
       lib.configs.models = lib.configs.models || {};
       lib.configs.models.Lorem = {
         dataSource: 'db',
         public: false
       };
-      lib.extended.boot(app, exampleRoot).then(function() {
+      lib.extended.boot(app, exampleRoot).then(() => {
         app.should.have.property('models').with.type('function');
         app.models.should.have.property('Lorem').with.type('function');
         done();
       }).catch(done);
     });
 
-    it('can be used to add mixins (TODO)', function(done) {
-      lib.extended.boot(app, exampleRoot).then(function() {
+    it('can be used to add mixins (TODO)', (done) => {
+      lib.extended.boot(app, exampleRoot).then(() => {
         app.should.have.property('registry').with.type('object');
         app.registry.should.have.property('modelBuilder').with.type('object');
         app.registry.modelBuilder.should.have.property('mixins').with.type('object');
@@ -106,14 +116,14 @@ describe('The extended', function() {
       }).catch(done);
     });
 
-    it('cannot override user configs', function(done) {
+    it('cannot override user configs', (done) => {
       lib.configs = lib.configs || {};
       lib.configs.dataSources = lib.configs.dataSources || {};
       lib.configs.dataSources.db = {
         name: 'db',
         connector: 'null'
       };
-      lib.extended.boot(app, exampleRoot).then(function() {
+      lib.extended.boot(app, exampleRoot).then(() => {
         app.dataSources.should.have.property('db').instanceof(DataSource);
         done();
       }).catch(done);
