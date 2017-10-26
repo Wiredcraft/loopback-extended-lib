@@ -1,19 +1,17 @@
-ENV = NODE_ENV=test DEBUG=loopback:extended:*,carcass:*
-MOCHA = ./node_modules/.bin/_mocha
-MOCHA_OPTS = -b --timeout 5000 --reporter spec
+DEBUG = DEBUG=loopback:extended:*,carcass:*
+BIN = ./node_modules/.bin
 TESTS = test/*.test.js
-ISTANBUL = ./node_modules/.bin/istanbul
-COVERALLS = ./node_modules/.bin/coveralls
+MOCHA_OPTS = -b --timeout 10000 --reporter spec
 
 lint:
 	@echo "Linting..."
-	@./node_modules/.bin/jscs index.js lib test example
+	@$(BIN)/jscs index.js lib test example
 test: lint
 	@echo "Testing..."
-	@$(ENV) $(MOCHA) $(MOCHA_OPTS) $(TESTS)
+	@NODE_ENV=test $(DEBUG) $(BIN)/_mocha $(MOCHA_OPTS) $(TESTS)
 test-cov: lint
 	@echo "Testing..."
-	@$(ENV) $(ISTANBUL) cover $(MOCHA) -- $(MOCHA_OPTS) $(TESTS)
+	@NODE_ENV=test $(DEBUG) $(BIN)/istanbul cover $(BIN)/_mocha -- $(MOCHA_OPTS) $(TESTS)
 test-coveralls: test-cov
-	@cat ./coverage/lcov.info | $(COVERALLS) --verbose
+	@cat ./coverage/lcov.info | $(BIN)/coveralls --verbose
 .PHONY: lint test test-cov test-coveralls
