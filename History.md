@@ -1,4 +1,9 @@
 
+0.5.0 / 2017-10-30
+==================
+
+  * Removed ability to extend boot from lib and updata loopback-boot to 3.x.
+
 0.4.1 / 2017-03-01
 ==================
 
