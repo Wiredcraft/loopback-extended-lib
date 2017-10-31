@@ -45,5 +45,10 @@ describe('The extended', () => {
       app.reboot(done);
     });
 
+    it('can close', (done) => {
+      app.should.have.property('close').which.is.Function();
+      app.close(done);
+    });
+
   });
 });
