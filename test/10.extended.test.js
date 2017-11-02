@@ -26,7 +26,7 @@ describe('The extended', () => {
       app.boot(done);
     });
 
-    it('can boot itself (Promise style)', () => {
+    it('can boot itself again (Promise style)', () => {
       app.should.have.property('boot').which.is.Function();
       return app.boot();
     });
@@ -48,6 +48,11 @@ describe('The extended', () => {
     it('can close', (done) => {
       app.should.have.property('close').which.is.Function();
       app.close(done);
+    });
+
+    it('can close again (Promise style)', () => {
+      app.should.have.property('close').which.is.Function();
+      return app.close();
     });
 
   });
