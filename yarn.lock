@@ -345,7 +345,7 @@ cookie-signature@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
 
-cookie@0.3.1, cookie@^0.3.1:
+cookie@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
@@ -706,10 +706,10 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
 g11n-pipeline@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/g11n-pipeline/-/g11n-pipeline-2.0.1.tgz#d80a05b09eac806ddad28040524e7efc474cc6f1"
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/g11n-pipeline/-/g11n-pipeline-2.0.2.tgz#1ec78a2042402e1e52e373a29009a4231ed44540"
   dependencies:
-    swagger-client "^3.0.20"
+    swagger-client "3.2.x"
 
 get-stream@^3.0.0:
   version "3.0.0"
@@ -2064,13 +2064,12 @@ supports-color@^3.1.0:
   dependencies:
     has-flag "^1.0.0"
 
-swagger-client@^3.0.20:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/swagger-client/-/swagger-client-3.3.1.tgz#5c28b4296a83605be2e191d8ebecd02b84a69f0c"
+swagger-client@3.2.x:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/swagger-client/-/swagger-client-3.2.2.tgz#c470eb7ad74f0e8e7a850dc38cf41a784220f680"
   dependencies:
     babel-runtime "^6.23.0"
     btoa "1.1.2"
-    cookie "^0.3.1"
     deep-extend "^0.4.1"
     fast-json-patch "1.1.8"
     isomorphic-fetch "2.2.1"
